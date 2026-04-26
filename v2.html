@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Walk With Jesus | Salty Farm Ministries</title>
+  <meta name="description" content="Walk With Jesus is a beach walk fundraiser hosted by Salty Farm Ministries to bring hope, dignity, and practical care to individuals experiencing homelessness." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Comforter+Brush&family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --jade: #2c7375;
+      --orange: #c67e50;
+      --yellow: #dfae02;
+      --navy: #12203e;
+      --sage: #a1b391;
+      --blue: #68a8ad;
+      --aqua: #17B5C7;
+      --turquoise: #32D0D8;
+      --walk-navy: #004874;
+      --red: #EF4B52;
+      --cream: #fff8ea;
+      --sand: #f4e7cf;
+      --ink: #101828;
+      --white: #ffffff;
+      --shadow: 0 28px 80px rgba(18, 32, 62, .18);
+      --radius: 28px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--navy);
+      background: var(--cream);
+      overflow-x: hidden;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img, video { max-width: 100%; display: block; }
+
+    .site-shell { background: radial-gradient(circle at top left, rgba(50, 208, 216, .22), transparent 36rem), radial-gradient(circle at 80% 8%, rgba(223, 174, 2, .16), transparent 30rem), linear-gradient(180deg, #fffdf7 0%, #fff8ea 32%, #f6ead4 100%); }
+
+    .nav {
+      position: fixed;
+      inset: 18px 22px auto 22px;
+      z-index: 50;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 14px 12px 18px;
+      border: 1px solid rgba(255,255,255,.42);
+      border-radius: 999px;
+      background: rgba(255, 248, 234, .82);
+      backdrop-filter: blur(18px);
+      box-shadow: 0 16px 44px rgba(18,32,62,.14);
+    }
+
+    .nav-brand { display: flex; align-items: center; gap: 12px; min-width: 240px; }
+    .nav-brand img { width: 54px; height: 54px; object-fit: contain; }
+    .nav-brand span { font-size: 12px; line-height: 1.15; letter-spacing: .16em; text-transform: uppercase; font-weight: 900; color: var(--walk-navy); }
+
+    .nav-links { display: flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 800; text-transform: uppercase; letter-spacing: .08em; }
+    .nav-links a { padding: 12px 14px; border-radius: 999px; color: rgba(18,32,62,.78); }
+    .nav-links a:hover { background: rgba(44,115,117,.1); color: var(--navy); }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 48px;
+      padding: 14px 22px;
+      border-radius: 999px;
+      border: 0;
+      font-weight: 900;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      cursor: pointer;
+      box-shadow: 0 16px 38px rgba(18,32,62,.18);
+      transition: transform .22s ease, box-shadow .22s ease, background .22s ease;
+    }
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 22px 52px rgba(18,32,62,.22); }
+    .btn-primary { color: white; background: linear-gradient(135deg, var(--red), var(--orange)); }
+    .btn-secondary { color: var(--navy); background: white; }
+    .btn-outline { color: var(--navy); background: rgba(255,255,255,.28); border: 1px solid rgba(18,32,62,.16); box-shadow: none; }
+
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      padding: 140px 24px 64px;
+      display: grid;
+      place-items: center;
+      isolation: isolate;
+      overflow: hidden;
+    }
+    .hero-video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -3;
+      filter: saturate(1.06) contrast(1.04);
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, rgba(18,32,62,.92) 0%, rgba(18,32,62,.72) 42%, rgba(18,32,62,.34) 100%), linear-gradient(180deg, rgba(18,32,62,.42), rgba(18,32,62,.18) 46%, rgba(255,248,234,.98) 100%);
+      z-index: -2;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: auto -10% -1px -10%;
+      height: 180px;
+      background: radial-gradient(120% 90% at 50% 100%, var(--cream) 0%, var(--cream) 58%, transparent 59%);
+      z-index: -1;
+    }
+    .hero-grid {
+      width: min(1180px, 100%);
+      display: grid;
+      grid-template-columns: 1.08fr .92fr;
+      gap: 48px;
+      align-items: center;
+    }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      color: white;
+      background: rgba(255,255,255,.14);
+      border: 1px solid rgba(255,255,255,.22);
+      text-transform: uppercase;
+      letter-spacing: .16em;
+      font-weight: 900;
+      font-size: 12px;
+    }
+    .eyebrow::before { content: ""; width: 10px; height: 10px; border-radius: 999px; background: var(--turquoise); box-shadow: 0 0 0 6px rgba(50,208,216,.18); }
+    h1 {
+      margin: 22px 0 18px;
+      color: white;
+      font-size: clamp(54px, 8vw, 116px);
+      line-height: .86;
+      letter-spacing: -.06em;
+      text-transform: uppercase;
+      text-wrap: balance;
+    }
+    .script { font-family: "Comforter Brush", cursive; font-size: 1.08em; text-transform: none; letter-spacing: 0; color: var(--turquoise); text-shadow: 0 6px 0 rgba(18,32,62,.24); }
+    .hero-copy { max-width: 720px; color: rgba(255,255,255,.88); font-size: clamp(17px, 1.7vw, 22px); line-height: 1.72; }
+    .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 32px; }
+    .hero-card {
+      border-radius: 36px;
+      padding: 24px;
+      background: rgba(255, 248, 234, .9);
+      backdrop-filter: blur(18px);
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(255,255,255,.54);
+    }
+    .hero-card img { width: min(420px, 100%); margin: 0 auto 22px; filter: drop-shadow(0 18px 30px rgba(18,32,62,.16)); }
+    .event-strip {
+      display: grid;
+      gap: 12px;
+    }
+    .event-pill {
+      display: grid;
+      grid-template-columns: 46px 1fr;
+      gap: 14px;
+      align-items: center;
+      padding: 14px;
+      border-radius: 20px;
+      background: white;
+      box-shadow: 0 12px 30px rgba(18,32,62,.08);
+    }
+    .event-pill b { font-size: 13px; text-transform: uppercase; letter-spacing: .12em; color: var(--jade); }
+    .event-pill span { display: block; font-weight: 800; color: var(--navy); }
+    .icon { width: 46px; height: 46px; display: grid; place-items: center; border-radius: 16px; color: white; background: linear-gradient(135deg, var(--jade), var(--turquoise)); font-weight: 900; }
+
+    section { padding: 96px 24px; }
+    .wrap { width: min(1180px, 100%); margin: 0 auto; }
+    .section-kicker { color: var(--red); font-size: 13px; font-weight: 900; text-transform: uppercase; letter-spacing: .18em; margin: 0 0 12px; }
+    h2 { margin: 0; font-size: clamp(38px, 5vw, 74px); line-height: .95; letter-spacing: -.045em; text-transform: uppercase; color: var(--navy); text-wrap: balance; }
+    .lead { font-size: clamp(17px, 1.6vw, 21px); line-height: 1.78; color: rgba(18,32,62,.76); max-width: 860px; }
+
+    .mission-card {
+      position: relative;
+      display: grid;
+      grid-template-columns: .95fr 1.05fr;
+      gap: 34px;
+      align-items: center;
+      padding: clamp(24px, 4vw, 48px);
+      border-radius: 44px;
+      background: white;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+    .mission-card::before { content: ""; position: absolute; width: 380px; height: 380px; right: -120px; top: -150px; border-radius: 50%; background: rgba(50,208,216,.18); }
+    .mission-card img { border-radius: 30px; box-shadow: 0 24px 60px rgba(18,32,62,.18); position: relative; }
+    .quote { font-size: clamp(24px, 3vw, 42px); line-height: 1.1; letter-spacing: -.035em; font-weight: 900; color: var(--walk-navy); margin: 0 0 22px; text-wrap: balance; }
+    .quote span { color: var(--red); }
+
+    .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; margin-top: 34px; }
+    .stat { padding: 26px; border-radius: 28px; background: rgba(255,255,255,.82); box-shadow: 0 18px 44px rgba(18,32,62,.1); border: 1px solid rgba(18,32,62,.07); }
+    .stat strong { display: block; font-size: clamp(34px, 4vw, 58px); line-height: 1; letter-spacing: -.06em; color: var(--jade); }
+    .stat span { display: block; margin-top: 8px; color: rgba(18,32,62,.7); font-weight: 700; }
+
+    .split { display: grid; grid-template-columns: .9fr 1.1fr; gap: 44px; align-items: start; }
+    .panel { padding: clamp(24px, 4vw, 42px); border-radius: 36px; background: white; box-shadow: var(--shadow); border: 1px solid rgba(18,32,62,.07); }
+    .panel.dark { background: linear-gradient(135deg, var(--navy), var(--walk-navy)); color: white; }
+    .panel.dark h2, .panel.dark .lead { color: white; }
+    .check-list { display: grid; gap: 14px; margin: 28px 0 0; padding: 0; list-style: none; }
+    .check-list li { display: grid; grid-template-columns: 34px 1fr; gap: 12px; align-items: start; color: rgba(18,32,62,.78); line-height: 1.6; }
+    .panel.dark .check-list li { color: rgba(255,255,255,.82); }
+    .check-list li::before { content: "✓"; width: 34px; height: 34px; display: grid; place-items: center; border-radius: 50%; background: var(--yellow); color: var(--navy); font-weight: 900; }
+
+    .route-img { border-radius: 30px; box-shadow: var(--shadow); background: white; padding: 10px; }
+
+    .fundraising-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; margin-top: 34px; }
+    .level { position: relative; min-height: 240px; padding: 26px; border-radius: 30px; background: white; box-shadow: 0 18px 48px rgba(18,32,62,.1); overflow: hidden; }
+    .level::after { content: ""; position: absolute; width: 130px; height: 130px; right: -50px; bottom: -50px; border-radius: 50%; background: rgba(50,208,216,.18); }
+    .level b { display: block; color: var(--red); text-transform: uppercase; letter-spacing: .1em; font-size: 12px; }
+    .level strong { display: block; margin: 14px 0; font-size: 38px; letter-spacing: -.05em; color: var(--walk-navy); }
+    .level p { margin: 0; color: rgba(18,32,62,.72); line-height: 1.6; }
+
+    .progress-card { margin-top: 36px; padding: 30px; border-radius: 34px; background: var(--navy); color: white; box-shadow: var(--shadow); }
+    .progress-top { display: flex; justify-content: space-between; gap: 20px; align-items: end; margin-bottom: 18px; }
+    .progress-top strong { font-size: clamp(34px, 5vw, 64px); letter-spacing: -.05em; }
+    .bar { height: 18px; border-radius: 999px; background: rgba(255,255,255,.16); overflow: hidden; }
+    .bar span { display: block; height: 100%; width: 0; border-radius: inherit; background: linear-gradient(90deg, var(--turquoise), var(--yellow), var(--red)); animation: fill 1.7s ease forwards; }
+    @keyframes fill { to { width: var(--w); } }
+
+    .sponsor-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 34px; }
+    .sponsor { padding: 26px; border-radius: 28px; background: white; box-shadow: 0 18px 44px rgba(18,32,62,.1); border-top: 6px solid var(--jade); }
+    .sponsor.featured { grid-column: span 3; display: grid; grid-template-columns: .8fr 1.2fr; gap: 22px; border-top-color: var(--red); background: linear-gradient(135deg, #ffffff, #fff1df); }
+    .sponsor h3 { margin: 0 0 8px; font-size: 26px; letter-spacing: -.04em; color: var(--navy); }
+    .sponsor .price { font-size: 42px; font-weight: 900; letter-spacing: -.06em; color: var(--jade); }
+    .sponsor ul { margin: 14px 0 0; padding-left: 20px; color: rgba(18,32,62,.72); line-height: 1.7; }
+
+    .gallery { display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px; margin-top: 34px; }
+    .gallery figure { margin: 0; border-radius: 24px; overflow: hidden; background: white; box-shadow: 0 18px 42px rgba(18,32,62,.12); aspect-ratio: 4/5; }
+    .gallery img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s ease; }
+    .gallery figure:hover img { transform: scale(1.06); }
+    .gallery figure:nth-child(1), .gallery figure:nth-child(8), .gallery figure:nth-child(15), .gallery figure:nth-child(22) { grid-column: span 2; grid-row: span 2; aspect-ratio: 1/1; }
+
+    .faq { display: grid; gap: 12px; margin-top: 34px; }
+    .faq-item { border-radius: 24px; background: white; box-shadow: 0 12px 32px rgba(18,32,62,.08); overflow: hidden; border: 1px solid rgba(18,32,62,.06); }
+    .faq-question { width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 18px; padding: 22px 24px; border: 0; background: transparent; color: var(--navy); font: inherit; font-weight: 900; text-align: left; cursor: pointer; }
+    .faq-question span { font-size: 24px; color: var(--red); }
+    .faq-answer { display: none; padding: 0 24px 24px; color: rgba(18,32,62,.74); line-height: 1.7; }
+    .faq-item.active .faq-answer { display: block; }
+
+    .cta-band { position: relative; overflow: hidden; border-radius: 46px; padding: clamp(34px, 6vw, 70px); color: white; background: linear-gradient(135deg, var(--walk-navy), var(--jade)); box-shadow: var(--shadow); }
+    .cta-band::before { content: ""; position: absolute; inset: 0; background: url('https://storage.googleapis.com/permanent-assets/WalkwithJesus-7.jpg') center/cover; opacity: .18; mix-blend-mode: screen; }
+    .cta-band > * { position: relative; }
+    .cta-band h2 { color: white; max-width: 860px; }
+    .cta-band p { max-width: 760px; color: rgba(255,255,255,.86); font-size: 19px; line-height: 1.7; }
+
+    footer { padding: 64px 24px 36px; color: white; background: var(--navy); }
+    .footer-grid { width: min(1180px, 100%); margin: 0 auto; display: grid; grid-template-columns: 1.2fr .8fr .8fr; gap: 34px; }
+    footer img { width: 180px; margin-bottom: 18px; }
+    footer p, footer a { color: rgba(255,255,255,.76); line-height: 1.7; }
+    footer h4 { margin: 0 0 12px; text-transform: uppercase; letter-spacing: .13em; color: var(--turquoise); }
+    .fineprint { width: min(1180px, 100%); margin: 36px auto 0; padding-top: 24px; border-top: 1px solid rgba(255,255,255,.14); color: rgba(255,255,255,.55); font-size: 13px; }
+
+    .mobile-toggle { display: none; }
+
+    @media (max-width: 980px) {
+      .nav { inset: 12px; border-radius: 26px; align-items: flex-start; }
+      .mobile-toggle { display: inline-flex; }
+      .nav-links { display: none; position: absolute; top: 78px; left: 0; right: 0; flex-direction: column; align-items: stretch; padding: 12px; border-radius: 24px; background: rgba(255,248,234,.96); box-shadow: var(--shadow); }
+      .nav.open .nav-links { display: flex; }
+      .nav-links a { width: 100%; }
+      .hero-grid, .mission-card, .split, .sponsor.featured, .footer-grid { grid-template-columns: 1fr; }
+      .stats, .fundraising-grid, .sponsor-grid { grid-template-columns: repeat(2, 1fr); }
+      .gallery { grid-template-columns: repeat(3, 1fr); }
+      .sponsor.featured { grid-column: span 1; }
+    }
+
+    @media (max-width: 640px) {
+      section { padding: 72px 18px; }
+      .hero { padding: 120px 18px 54px; }
+      .nav-brand { min-width: 0; }
+      .nav-brand span { display: none; }
+      .stats, .fundraising-grid, .sponsor-grid { grid-template-columns: 1fr; }
+      .gallery { grid-template-columns: repeat(2, 1fr); }
+      .gallery figure:nth-child(n) { grid-column: auto; grid-row: auto; aspect-ratio: 4/5; }
+      .hero-actions { flex-direction: column; }
+      .btn { width: 100%; }
+      .progress-top { display: block; }
+    }
+  </style>
+</head>
+<body>
+  <div class="site-shell">
+    <nav class="nav" id="nav">
+      <a class="nav-brand" href="#home" aria-label="Walk With Jesus Home">
+        <img src="https://storage.googleapis.com/permanent-assets/walk_with_jesus_sfm_logo.png" alt="Walk With Jesus and Salty Farm Ministries logo" />
+        <span>Walk With Jesus<br>Salty Farm Ministries</span>
+      </a>
+      <button class="btn btn-outline mobile-toggle" type="button" onclick="document.getElementById('nav').classList.toggle('open')">Menu</button>
+      <div class="nav-links">
+        <a href="#mission">Mission</a>
+        <a href="#details">Details</a>
+        <a href="#fundraise">Fundraise</a>
+        <a href="#sponsors">Sponsors</a>
+        <a href="#faq">FAQ</a>
+        <a class="btn btn-primary" href="#register">Register</a>
+      </div>
+    </nav>
+
+    <header class="hero" id="home">
+      <video class="hero-video" autoplay muted loop playsinline poster="https://storage.googleapis.com/permanent-assets/WalkwithJesus.jpg">
+        <source src="https://storage.googleapis.com/permanent-assets/WEBSITE_HEADER.mp4" type="video/mp4" />
+      </video>
+      <div class="hero-grid">
+        <div>
+          <div class="eyebrow">Faith in Action • Hope in Motion</div>
+          <h1>Walk <span class="script">with</span> Jesus</h1>
+          <p class="hero-copy">Join Salty Farm Ministries for a powerful beachside experience where faith, community, and compassion come together. Every step helps provide food, clothing, showers, resources, and life-changing care for individuals experiencing homelessness.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#register">Register to Walk</a>
+            <a class="btn btn-secondary" href="https://form-renderer-app.donorperfect.io/give/salty-farm-ministries/donation-form" target="_blank" rel="noopener">Donate Now</a>
+            <a class="btn btn-outline" href="#sponsors">Become a Sponsor</a>
+          </div>
+        </div>
+        <aside class="hero-card" aria-label="Event details">
+          <img src="https://storage.googleapis.com/permanent-assets/walk_with_jesus_logo_transparent.png" alt="Walk With Jesus logo" />
+          <div class="event-strip">
+            <div class="event-pill"><div class="icon">10</div><div><b>Date</b><span>October 10</span></div></div>
+            <div class="event-pill"><div class="icon">10</div><div><b>Start</b><span>Walk kicks off at 10:00 AM</span></div></div>
+            <div class="event-pill"><div class="icon">1</div><div><b>Recognition</b><span>Awards around 1:00 PM</span></div></div>
+            <div class="event-pill"><div class="icon">🏖</div><div><b>Location</b><span>Behind Sharky’s on the beach</span></div></div>
+          </div>
+        </aside>
+      </div>
+    </header>
+
+    <section id="mission">
+      <div class="wrap mission-card">
+        <img src="https://storage.googleapis.com/permanent-assets/Mission_Statement.png" alt="Walk With Jesus mission statement" />
+        <div>
+          <p class="section-kicker">The Mission</p>
+          <p class="quote">A shared walk of faith that turns <span>compassion</span> into visible action.</p>
+          <p class="lead">Our mission is to inspire a movement of compassion through a shared walk of faith, raising resources and awareness to uplift individuals experiencing homelessness and reflect the love of Jesus in action.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#register">Join the Movement</a>
+            <a class="btn btn-outline" href="#impact">See the Impact</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="impact">
+      <div class="wrap">
+        <p class="section-kicker">The Goal</p>
+        <h2>$250,000 for hope, dignity, and real support.</h2>
+        <p class="lead">We are believing for $250,000 through this event to expand the mission of serving friends on the streets with meals, clothing, showers, and ongoing support that leads to real transformation.</p>
+        <div class="stats">
+          <div class="stat"><strong>$250K</strong><span>Community fundraising goal</span></div>
+          <div class="stat"><strong>1 & 2</strong><span>Mile beach route options</span></div>
+          <div class="stat"><strong>100+</strong><span>Walkers can create major momentum</span></div>
+          <div class="stat"><strong>Every</strong><span>Step can change a life</span></div>
+        </div>
+        <div class="progress-card">
+          <div class="progress-top">
+            <div>
+              <p class="section-kicker" style="color: var(--turquoise); margin-bottom: 6px;">Community Progress</p>
+              <strong>$0 / $250,000</strong>
+            </div>
+            <span>Connect live donation data when registration platform is selected.</span>
+          </div>
+          <div class="bar" style="--w: 0%;"><span></span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="details">
+      <div class="wrap split">
+        <div class="panel dark">
+          <p class="section-kicker" style="color: var(--yellow);">Event Details</p>
+          <h2>Walk the beach. Share the hope. Make a difference.</h2>
+          <ul class="check-list">
+            <li>The walk begins and ends behind Sharky’s restaurant.</li>
+            <li>Participants can choose a 1-mile or 2-mile beach walk route.</li>
+            <li>Families, churches, businesses, and teams are welcome.</li>
+            <li>No pets are allowed on this part of the beach.</li>
+            <li>Bring comfortable shoes, water, sunscreen, and a positive spirit.</li>
+          </ul>
+        </div>
+        <div>
+          <img class="route-img" src="https://storage.googleapis.com/permanent-assets/Walk_with_Jesus_Site_Map.png" alt="Walk With Jesus site map" />
+        </div>
+      </div>
+    </section>
+
+    <section id="register">
+      <div class="wrap split">
+        <div>
+          <p class="section-kicker">Registration</p>
+          <h2>Walk solo. Start a team. Rally your people.</h2>
+          <p class="lead">Individuals, families, church groups, businesses, and community teams can all participate. Team pages show collective progress, while walker pages highlight personal goals—ensuring the mission remains the focus of the event.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#">Register Link Needed</a>
+            <a class="btn btn-secondary" href="https://form-renderer-app.donorperfect.io/give/salty-farm-ministries/donation-form" target="_blank" rel="noopener">Donate to the Mission</a>
+          </div>
+        </div>
+        <div class="panel">
+          <ul class="check-list">
+            <li>Individual walker profiles with story, goal, donation button, and social sharing.</li>
+            <li>Team pages with total team giving, walker roster, and team progress.</li>
+            <li>Team captain communication tools for motivating walkers.</li>
+            <li>Overall community progress display to keep the mission central.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="fundraise">
+      <div class="wrap">
+        <p class="section-kicker">Fundraising for Walkers</p>
+        <h2>Simple goals. Direct asks. Real impact.</h2>
+        <p class="lead">People give to purpose. Share why you are walking, ask clearly, make it easy to give, and thank every donor. The goal is not pressure; the goal is momentum.</p>
+        <div class="fundraising-grid">
+          <div class="level"><b>Light Bearer</b><strong>$250</strong><p>Bring encouragement and practical support to those in need.</p></div>
+          <div class="level"><b>Hope Carrier</b><strong>$500</strong><p>Demonstrate a strong commitment to faith in action and meaningful care.</p></div>
+          <div class="level"><b>Faith in Action Champion</b><strong>$1,000</strong><p>Lead by example through generosity, purpose, and visible impact.</p></div>
+          <div class="level"><b>Kingdom Impact Leader</b><strong>$5,000</strong><p>Help expand the mission and bring lasting transformation to lives in need.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="sponsors">
+      <div class="wrap">
+        <p class="section-kicker">Sponsorship</p>
+        <h2>Invite local businesses into visible community impact.</h2>
+        <p class="lead">Sponsorship is more than logo placement. It is a public statement that your business is helping reach people experiencing homelessness with tangible support, dignity, and the love of Jesus.</p>
+        <div class="sponsor-grid">
+          <div class="sponsor featured">
+            <div>
+              <h3>Presenting Sponsor</h3>
+              <div class="price">$25,000</div>
+            </div>
+            <ul>
+              <li>“Presented by” recognition on all materials</li>
+              <li>Largest logo on shirts, banners, and website</li>
+              <li>Speaking opportunity at the event</li>
+              <li>Featured social media and email spotlight</li>
+              <li>Opportunity to include branded items in giveaway bags</li>
+            </ul>
+          </div>
+          <div class="sponsor"><h3>Platinum</h3><div class="price">$10,000</div><ul><li>Prominent logo placement</li><li>Multiple social features</li><li>Event recognition</li><li>Booth or table</li></ul></div>
+          <div class="sponsor"><h3>Gold</h3><div class="price">$5,000</div><ul><li>Logo on shirts and website</li><li>Social media recognition</li><li>Name mentioned during event</li></ul></div>
+          <div class="sponsor"><h3>Silver</h3><div class="price">$2,500</div><ul><li>Logo on website</li><li>Group social recognition</li><li>Name listed on signage</li></ul></div>
+          <div class="sponsor"><h3>Bronze</h3><div class="price">$1,000</div><ul><li>Name listed on website</li><li>Thank-you social post</li></ul></div>
+          <div class="sponsor"><h3>Community Partner</h3><div class="price">$500</div><ul><li>Name listed online</li><li>Event program recognition</li></ul></div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <p class="section-kicker">Event Gallery</p>
+        <h2>Faith, beach, movement, and mission.</h2>
+        <p class="lead">Use these campaign assets across the site to keep the event visually rich, credible, and emotionally connected.</p>
+        <div class="gallery">
+          <figure><img src="https://storage.googleapis.com/permanent-assets/WalkwithJesus.jpg" alt="Walk With Jesus event campaign asset 1" loading="lazy"></figure>
+          <figure><img src="https://storage.googleapis.com/permanent-assets/WalkwithJesus-2.jpg" alt="Walk With Jesus event campaign asset 2" loading="lazy"></figure>
+          <figure><img src="https://storage.googleapis.com/permanent-assets/WalkwithJesus-3.jpg" alt="Walk With Jesus event campaign asset 3" loading="lazy"></figure>
+          <figure><img src="https://storage.googleapis.com/permanent-assets/WalkwithJesus-4.jpg" alt="Walk With Jesus event campaign asset 4" loading="lazy"></figure>
+          <figure><img src="https://storage.googleapis.com/permanent-assets/WalkwithJesus-5.jpg" alt="Walk With Jesus event campaign asset 5" loading="lazy"></figure>
+          <figure><img src="https://storage.googleapis.com/permanent-assets/WalkwithJesus-6.jpg" alt="Walk With Jesus event campaign asset 6" loading="lazy"></figure>
+          <figure><img src="https://storage.googleapis.com/permanent-assets/WalkwithJesus-7.jpg" alt="Walk With Jesus event campaign asset 7" loading="lazy"></figure>
+          <figure><img src="https://storage.googleapis.com/permanent-assets/WalkwithJesus-8.jpg" alt="Walk With Jesus event campaign asset 8" loading="lazy"></figure>
+          <figure><img src="https://storage.googleapis.com/permanent-assets/WalkwithJesus-9.jpg" alt="Walk With Jesus event campaign asset 9" loading="lazy"></figure>
+          <figure><img src="https://storage.googleapis.com/permanent-assets/WalkwithJesus-10.jpg" alt="Walk With Jesus event campaign asset 10" loading="lazy"></figure>
+          <figure><img src="https://storage.googleapis.com/permanent-assets/WalkwithJesus-11.jpg" alt="Walk With Jesus event campaign asset 11" loading="lazy"></figure>
+          <figure><img src="https://storage.googleapis.com/permanent-assets/WalkwithJesus-12.jpg" alt="Walk With Jesus event campaign asset 12" loading="lazy"></figure>
+          <figure><img src="https://storage.googleapis.com/permanent-assets/WalkwithJesus-13.jpg" alt="Walk With Jesus event campaign asset 13" loading="lazy"></figure>
+          <figure><img src="https://storage.googleapis.com/permanent-assets/WalkwithJesus-14.jpg" alt="Walk With Jesus event campaign asset 14" loading="lazy"></figure>
+          <figure><img src="https://storage.googleapis.com/permanent-assets/WalkwithJesus-15.jpg" alt="Walk With Jesus event campaign asset 15" loading="lazy"></figure>
+          <figure><img src="https://storage.googleapis.com/permanent-assets/WalkwithJesus-16.jpg" alt="Walk With Jesus event campaign asset 16" loading="lazy"></figure>
+          <figure><img src="https://storage.googleapis.com/permanent-assets/WalkwithJesus-17.jpg" alt="Walk With Jesus event campaign asset 17" loading="lazy"></figure>
+          <figure><img src="https://storage.googleapis.com/permanent-assets/WalkwithJesus-18.jpg" alt="Walk With Jesus event campaign asset 18" loading="lazy"></figure>
+          <figure><img src="https://storage.googleapis.com/permanent-assets/WalkwithJesus-19.jpg" alt="Walk With Jesus event campaign asset 19" loading="lazy"></figure>
+          <figure><img src="https://storage.googleapis.com/permanent-assets/WalkwithJesus-20.jpg" alt="Walk With Jesus event campaign asset 20" loading="lazy"></figure>
+          <figure><img src="https://storage.googleapis.com/permanent-assets/WalkwithJesus-21.jpg" alt="Walk With Jesus event campaign asset 21" loading="lazy"></figure>
+          <figure><img src="https://storage.googleapis.com/permanent-assets/WalkwithJesus-22.jpg" alt="Walk With Jesus event campaign asset 22" loading="lazy"></figure>
+          <figure><img src="https://storage.googleapis.com/permanent-assets/WalkwithJesus-23.jpg" alt="Walk With Jesus event campaign asset 23" loading="lazy"></figure>
+          <figure><img src="https://storage.googleapis.com/permanent-assets/WalkwithJesus-24.jpg" alt="Walk With Jesus event campaign asset 24" loading="lazy"></figure>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq">
+      <div class="wrap">
+        <p class="section-kicker">FAQ</p>
+        <h2>What walkers, donors, and sponsors need to know.</h2>
+        <div class="faq">
+          <div class="faq-item active"><button class="faq-question" type="button">What is the Walk With Jesus Beach Walk Fundraiser?<span>+</span></button><div class="faq-answer">It is a community event where participants walk together along the beach to raise funds and awareness for Salty Farm Ministries’ outreach to individuals experiencing homelessness.</div></div>
+          <div class="faq-item"><button class="faq-question" type="button">Where and when is the event?<span>+</span></button><div class="faq-answer">The walk begins and ends behind Sharky’s restaurant on October 10. The walk kicks off at 10:00 AM, with awards and recognition around 1:00 PM.</div></div>
+          <div class="faq-item"><button class="faq-question" type="button">Who can participate?<span>+</span></button><div class="faq-answer">Everyone is welcome, including individuals, families, church groups, businesses, and teams. The event is family-friendly; however, please note that no pets are allowed on this part of the beach.</div></div>
+          <div class="faq-item"><button class="faq-question" type="button">Is there a registration fee?<span>+</span></button><div class="faq-answer">Registration may be free, but participants are encouraged to fundraise to support the mission.</div></div>
+          <div class="faq-item"><button class="faq-question" type="button">Do I have to raise money to participate?<span>+</span></button><div class="faq-answer">Fundraising is encouraged but not required. Every participant is invited to set a personal goal and help the community reach the overall fundraising goal.</div></div>
+          <div class="faq-item"><button class="faq-question" type="button">Where do the funds go?<span>+</span></button><div class="faq-answer">All proceeds support Salty Farm Ministries’ outreach efforts, including food, showers, clothing, discipleship, support services, and care for individuals experiencing homelessness.</div></div>
+          <div class="faq-item"><button class="faq-question" type="button">Can I donate without walking?<span>+</span></button><div class="faq-answer">Yes. Supporters can donate directly through the website even if they cannot attend or walk in person.</div></div>
+          <div class="faq-item"><button class="faq-question" type="button">Are sponsorship opportunities available?<span>+</span></button><div class="faq-answer">Yes. Businesses and organizations can partner as sponsors through the various levels listed on this site.</div></div>
+          <div class="faq-item"><button class="faq-question" type="button">Who can I contact for more information?<span>+</span></button><div class="faq-answer">You can email Salty Farm Ministries at info@saltyfarmministries.org for more information.</div></div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap cta-band">
+        <p class="section-kicker" style="color: var(--yellow);">Take the Next Step</p>
+        <h2>Be the hands and feet of Jesus.</h2>
+        <p>Walk With Jesus is more than an event; it is a movement of hope in action. Walk, give, sponsor, volunteer, or pray to help bring restoration to our community.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#register">Register to Walk</a>
+          <a class="btn btn-secondary" href="https://form-renderer-app.donorperfect.io/give/salty-farm-ministries/donation-form" target="_blank" rel="noopener">Give Today</a>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <footer>
+    <div class="footer-grid">
+      <div>
+        <img src="https://storage.googleapis.com/permanent-assets/walk_with_jesus_sfm_logo.png" alt="Walk With Jesus and Salty Farm Ministries logo" />
+        <p>Hosted by Salty Farm Ministries. Meeting needs, restoring dignity, bringing hope, empowering purpose, and cultivating community for our brothers and sisters living on the streets.</p>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <p>info@saltyfarmministries.org<br>850.732.6647<br>Panama City Beach, FL</p>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <p><a href="https://www.saltyfarmministries.org/" target="_blank" rel="noopener">Salty Farm Ministries</a><br><a href="https://www.saltyfarmministries.org/getinvolved" target="_blank" rel="noopener">Ways to Get Involved</a><br><a href="https://form-renderer-app.donorperfect.io/give/salty-farm-ministries/donation-form" target="_blank" rel="noopener">Donate</a></p>
+      </div>
+    </div>
+    <div class="fineprint">© 2026 Walk With Jesus. Event website concept for sfmwalkwithjesus.org.</div>
+  </footer>
+
+  <script>
+    document.querySelectorAll('.faq-question').forEach((button) => {
+      button.addEventListener('click', () => {
+        button.closest('.faq-item').classList.toggle('active');
+      });
+    });
+
+    document.querySelectorAll('.nav-links a').forEach((link) => {
+      link.addEventListener('click', () => {
+        document.getElementById('nav').classList.remove('open');
+      });
+    });
+  </script>
+</body>
+</html>
